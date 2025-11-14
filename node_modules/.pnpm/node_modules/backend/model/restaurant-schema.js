@@ -1,0 +1,82 @@
+import mongoose from "mongoose";
+
+const restaurantSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+
+  description: {
+    type: String,
+  },
+
+  image: {
+    type: String,
+  },
+
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+
+  address: {
+    street: String,
+    city: String,
+    province: String,
+    barangay: String,
+    zip: String,
+  },
+
+  phone: {
+    type: String,
+  },
+
+  category: [String], // "Filipino", "Fast Food", etc.
+
+  menu: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "MenuItem",
+    }
+  ],
+
+  deliveryFee: {
+    type: Number,
+    default: 0,
+  },
+
+  minimumOrder: {
+    type: Number,
+    default: 0,
+  },
+
+  rating: {
+    average: { type: Number, default: 0 },
+    count: { type: Number, default: 0 },
+  },
+
+  schedule: {
+    mon: { open: { type: String }, close: { type: String }, closed: { type: Boolean } },
+    tue: { open: { type: String }, close: { type: String }, closed: { type: Boolean } },
+    wed: { open: { type: String }, close: { type: String }, closed: { type: Boolean } },
+    thu: { open: { type: String }, close: { type: String }, closed: { type: Boolean } },
+    fri: { open: { type: String }, close: { type: String }, closed: { type: Boolean } },
+    sat: { open: { type: String }, close: { type: String }, closed: { type: Boolean } },
+    sun: { open: { type: String }, close: { type: String }, closed: { type: Boolean } },
+  },
+
+  isOpen: {
+    type: Boolean,
+    default: true,
+  },
+
+  tags: [String], // "popular", "promo", etc.
+
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+export default mongoose.model("Restaurant", restaurantSchema);

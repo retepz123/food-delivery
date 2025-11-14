@@ -1,0 +1,8 @@
+{
+  "name": "food-delivery",
+  "private": true,
+  "packageManager": "pnpm@10.22.0",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev"
+  }
+}

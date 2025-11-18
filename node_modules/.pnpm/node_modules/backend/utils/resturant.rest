@@ -1,0 +1,26 @@
+# @prompt name
+# @prompt description
+# @prompt image
+# @prompt address
+# @prompt phone
+# @prompt category
+# @prompt deliveryFee
+# @prompt rating
+# @prompt isOpen
+# @prompt tags
+POST http://localhost:3000/api/restaurant
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ0MjU4MCwiZXhwIjoxNzY0MDQ3MzgwfQ.uy6eVivKT0czbsOPZhgdcwYCZAOeQL1aIz7QoPGEMMg
+
+{
+   "name": "{{name}}",
+  "description": "{{description}}",
+  "image": "{{image}}",
+  "address": "{{address}}",
+  "phone": "{{phone}}",
+  "category": "{{category}}",
+  "deliveryFee": "{{deliveryFee}}",
+  "rating": "{{rating}}",
+  "isOpen": "{{isOpen}}",
+  "tags": "{{tags}}"
+}

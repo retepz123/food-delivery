@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
 import authenticateRoute from './routes/authenticate-routes.js'
+import restaurantRoutes from './routes/restaurant-routes.js';
 
 dotenv.config();
 
@@ -34,6 +35,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/auth', authenticateRoute);
+app.use('/api', restaurantRoutes );
 
 
 app.listen(PORT, () => {

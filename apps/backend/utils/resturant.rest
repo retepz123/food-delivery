@@ -10,7 +10,7 @@
 # @prompt tags
 POST http://localhost:3000/api/restaurant
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ0MjU4MCwiZXhwIjoxNzY0MDQ3MzgwfQ.uy6eVivKT0czbsOPZhgdcwYCZAOeQL1aIz7QoPGEMMg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyODljYTkwODU2MDA5ODllNyIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ1OTAzMywiZXhwIjoxNzY0MDYzODMzfQ.8WTWI5ajRdE0YXG_11lwEDRwEex31_ZlJFwbU0vAgPM
 
 {
    "name": "{{name}}",
@@ -24,3 +24,35 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiM
   "isOpen": "{{isOpen}}",
   "tags": "{{tags}}"
 }
+
+###
+# @prompt RestaurantId
+# @prompt name
+# @prompt price
+# @prompt image
+# @prompt category
+# @prompt isAvailable
+POST http://localhost:3000/api/menuItems
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyODljYTkwODU2MDA5ODllNyIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ2MzY2NywiZXhwIjoxNzY0MDY4NDY3fQ.qwVo8_0pIAXbz8vcdhrBmzChPcJFiyceeeHD9jg7l8E
+
+{
+  "RestaurantId": "{{RestaurantId}}" ,
+  "name": "{{name}}",
+  "price": "{{price}}",
+  "image": "{{image}}",
+  "category": "{{category}}",
+  "isAvailable": "{{isAvailable}}"
+}
+
+### all restaurant admin only
+GET http://localhost:3000/api/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzNzNmNmJlMzcwYzE3Y2E5MzI5OSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2MzQ1NzM1NSwiZXhwIjoxNzY0MDYyMTU1fQ.YF12h9rlK5PCnZjbmPbDuo_xWdEgwDKNHIvKVEdwIU0
+
+### owner restaurant
+GET http://localhost:3000/api/myrestaurant
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyODljYTkwODU2MDA5ODllNyIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ2MzY2NywiZXhwIjoxNzY0MDY4NDY3fQ.qwVo8_0pIAXbz8vcdhrBmzChPcJFiyceeeHD9jg7l8E
+
+### menu of the restaurant
+GET http://localhost:3000/api/restaurant/menu
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ2MzQzMywiZXhwIjoxNzY0MDY4MjMzfQ.ZIV0aLAxpEqRoHjgDFB1GxoZrXosuMbbQNDXfjK-RF8

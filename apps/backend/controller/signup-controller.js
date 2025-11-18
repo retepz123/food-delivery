@@ -5,7 +5,7 @@ export async function signUp(req, res){
   try {
     const { username, email, password, role } = req.body;
 
-    //only customer and owner role admin will be manually in DB
+    //only customer and owner
     let userRole = role;
     if (!['customer', 'owner'].includes(role)){
       userRole = 'customer';
@@ -15,10 +15,10 @@ export async function signUp(req, res){
     return res.status(200).json({ message: 'Successfully Created',
       user: {
         id: newUser._id,
-        username: newUser.name,
+        username: newUser.username,
         email: newUser.email,
         password: newUser.password,
-        role: newUser.role
+        role: newUser.role,
       },
     })
 

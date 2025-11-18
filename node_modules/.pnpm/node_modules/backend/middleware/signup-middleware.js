@@ -5,7 +5,7 @@ export async function validateSignUp(req, res, next){
     const { username, email, password, role } = req.body;
 
     //validate username and password
-    if(!username || !password || !email || !role){
+    if(!username || !password || !email){
       return res.status(400).json({ message: 'Fields are required'})
     }
 

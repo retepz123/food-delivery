@@ -24,7 +24,7 @@ const menuItemSchema = new Schema ({
     type: String,
   },
 
-  isAvalaible: {
+  isAvailable: {
     type: Boolean,
     default: true,
   },

@@ -8,9 +8,10 @@ export async function protectedMiddleware(req, res, next){
    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
     token = req.headers.authorization.split(' ')[1]
 
-   } else if (req.cookies && req.cookie.token){
+   } else if (req.cookies && req.cookies.token){
     token = req.cookies.token;
    }
+  //  console.log('Request Token:', token);
 
    if (!token) {
     return res.status(400).json({ message: 'No token provided'});

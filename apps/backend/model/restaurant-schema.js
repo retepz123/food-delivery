@@ -48,8 +48,7 @@ const restaurantSchema = new Schema({
   },
 
   rating: {
-    average: { type: Number, default: 0 },
-    count: { type: Number, default: 0 },
+    type: Number
   },
 
   schedule: {

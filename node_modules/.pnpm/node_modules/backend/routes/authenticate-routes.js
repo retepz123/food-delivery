@@ -9,7 +9,6 @@ const router = express.Router();
 
 router.post('/register', validateSignUp, signUp);
 router.post('/login', validateLogin, login);
-
 router.get('/check', protectedMiddleware, (req, res) => {
   res.status(200).json({ user: req.user });
 });

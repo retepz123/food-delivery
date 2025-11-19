@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 
 import authenticateRoute from './routes/authenticate-routes.js'
 import restaurantRoutes from './routes/restaurant-routes.js';
+import validateUsername from './routes/validateUsername-routes.js'
 
 dotenv.config();
 
@@ -44,6 +45,7 @@ app.get('/', (req, res) => {
 
 //routes
 app.use('/api/auth', authenticateRoute);
+app.use('/api', validateUsername);
 app.use('/api', restaurantRoutes );
 
 

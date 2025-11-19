@@ -3,11 +3,16 @@ import { validateSignUp } from '../middleware/signup-middleware.js';
 import { signUp } from '../controller/signup-controller.js';
 import { validateLogin } from '../middleware/login-middleware.js';
 import { login } from '../controller/login-controller.js';
+import { protectedMiddleware } from '../middleware/protected-middleware.js';
 
 const router = express.Router();
 
 router.post('/register', validateSignUp, signUp);
 router.post('/login', validateLogin, login);
+
+router.get('/check', protectedMiddleware, (req, res) => {
+  res.status(200).json({ user: req.user });
+});
 
 
 export default router;

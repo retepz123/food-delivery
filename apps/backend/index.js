@@ -13,6 +13,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+//connect to mongoDB
 async function connectDB (){
   try {
     await mongoose.connect(process.env.URL_DB);
@@ -22,6 +23,13 @@ async function connectDB (){
   }
 }
 connectDB();
+
+//cors connect to frontend
+app.use(cors({
+  origin: ['http://localhost:5173'],
+  methods: ['GET', 'POST', 'DELETE'],
+  credentials: true,
+}));
 
 app.set('port', PORT);
 app.use(express.json());
@@ -34,6 +42,7 @@ app.get('/', (req, res) => {
   });
 });
 
+//routes
 app.use('/api/auth', authenticateRoute);
 app.use('/api', restaurantRoutes );
 

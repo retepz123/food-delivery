@@ -4,6 +4,7 @@ import User from '../model/user-schema.js';
 export async function protectedMiddleware(req, res, next){
   try {
    let token;
+  //  console.log('Protected Middleware User:', req.user);
 
    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
     token = req.headers.authorization.split(' ')[1]
@@ -11,7 +12,7 @@ export async function protectedMiddleware(req, res, next){
    } else if (req.cookies && req.cookies.token){
     token = req.cookies.token;
    }
-  //  console.log('Request Token:', token);
+   console.log('Request Token:', token);
 
    if (!token) {
     return res.status(400).json({ message: 'No token provided'});

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {axiosInstance} from '../lib/axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // const SIGN_UP_URL = `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`;
 
@@ -41,11 +41,10 @@ function SignUp() {
      );
 
     } catch (error) {
-  // Handle both username check errors and signup errors
   if (error.response && error.response.data.error) {
-    alert(error.response.data.error); // e.g. username taken
+    alert(error.response.data.error); 
   } else if (error.response && error.response.data.message) {
-    alert(error.response.data.message); // e.g. signup error
+    alert(error.response.data.message); 
   } else {
     console.error('Error in signup', error);
     alert('Internal Server Error');
@@ -69,6 +68,7 @@ function SignUp() {
   </select>
  <button type='submit'>Sign Up</button>
       </form>
+     <Link to='/login'>Login</Link>
     </div>
     </>
   );

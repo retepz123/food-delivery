@@ -10,15 +10,20 @@ export async function menuItems(req, res) {
        return res.status(404).json({ message: "Owner has no restaurant yet" });
     }
 
-    const { name, price, image, category, isAvailable } = req.body;
+    const { name, price, category, isAvailable } = req.body;
+     const imageUrl = req.file?.path || '';
+
+     console.log('Form data:', req.body);
+console.log('Uploaded file:', req.file);
+
 
     const items = await MenuItem.create({
       restaurant: restaurant._id,
       name,
-      price,
-      image,
+      price: Number(price),
+      image: imageUrl,
       category,
-      isAvailable,
+      isAvailable: isAvailable ?? true
     });
 
     return res.status(200).json({ message: 'Successfully created a Menu', items});

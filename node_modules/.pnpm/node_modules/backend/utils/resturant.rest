@@ -1,3 +1,4 @@
+### Restaurant
 # @prompt name
 # @prompt description
 # @prompt image
@@ -25,7 +26,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyO
   "tags": "{{tags}}"
 }
 
-###
+### menu items
 # @prompt RestaurantId
 # @prompt name
 # @prompt price
@@ -34,7 +35,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyO
 # @prompt isAvailable
 POST http://localhost:3000/api/menuItems
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyODljYTkwODU2MDA5ODllNyIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ2MzY2NywiZXhwIjoxNzY0MDY4NDY3fQ.qwVo8_0pIAXbz8vcdhrBmzChPcJFiyceeeHD9jg7l8E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzcxNzkxMywiZXhwIjoxNzY0MzIyNzEzfQ.p6Vm9d55XPGBx5NvSzGrz8X8tvGsXPVt4iPHS3aCSSA
 
 {
   "RestaurantId": "{{RestaurantId}}" ,
@@ -51,8 +52,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzNzNmN
 
 ### owner restaurant
 GET http://localhost:3000/api/myrestaurant
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyODljYTkwODU2MDA5ODllNyIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ2MzY2NywiZXhwIjoxNzY0MDY4NDY3fQ.qwVo8_0pIAXbz8vcdhrBmzChPcJFiyceeeHD9jg7l8E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzcxNzkxMywiZXhwIjoxNzY0MzIyNzEzfQ.p6Vm9d55XPGBx5NvSzGrz8X8tvGsXPVt4iPHS3aCSSA
 
 ### menu of the restaurant
 GET http://localhost:3000/api/restaurant/menu
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ2MzQzMywiZXhwIjoxNzY0MDY4MjMzfQ.ZIV0aLAxpEqRoHjgDFB1GxoZrXosuMbbQNDXfjK-RF8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzYyMzM0NSwiZXhwIjoxNzY0MjI4MTQ1fQ.BquRDrOoNyIBpAvvw4jC2cIjCfWy5iSppT4DdpMfqgA
+
+###
+GET http://localhost:3000/api/restaurant/menuItems/691fefd6f3a8d764e9fdd96b

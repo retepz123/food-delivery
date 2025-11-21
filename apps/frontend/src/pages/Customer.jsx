@@ -1,4 +1,4 @@
-function Home() {
+function Customer() {
   return (
     <>
     <h1>Home</h1>
@@ -6,4 +6,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Customer;

@@ -1,6 +1,5 @@
 import Restaurant from '../model/restaurant-schema.js';
 import MenuItem from '../model/menu-schema.js';
-import User from '../model/user-schema.js';
 
 export async function createRestaurant(req, res) {
   console.log('Request user Id:', req.user.id);
@@ -12,7 +11,6 @@ export async function createRestaurant(req, res) {
     const {
       name,
       description,
-      image,
       address,
       phone,
       category,
@@ -22,10 +20,11 @@ export async function createRestaurant(req, res) {
       tags
     } = req.body;
 
+      const imageUrl = req.file?.path || '';
+
     const restaurant = await Restaurant.create({
       name,
       description,
-      image,
       owner: ownerId,  // secure owner
       address,
       phone,
@@ -33,7 +32,8 @@ export async function createRestaurant(req, res) {
       deliveryFee,
       rating,
       isOpen,
-      tags
+      tags,
+      image: imageUrl
     });
 
     return res.status(201).json({
@@ -55,7 +55,10 @@ export async function getMyRestaurant(req, res){
     const user = req.user;
     const ownerId = req.user._id;
 
-    const restaurant = await Restaurant.findOne({ owner: ownerId });
+      // console.log("REQ.FILE >>>", req.file); // ← IMPORTANT
+      //  console.log("REQ.BODY >>>", req.body);
+
+    const restaurant = await Restaurant.find({ owner: ownerId });
 
     if (!restaurant){
       return res.status(400).json({ message: 'You don`t have a Restaurant'});
@@ -91,5 +94,22 @@ export async function getMyMenuOwner(req, res){
   } catch(error) {
     console.error("Error fetching menu items:", error);
     return res.status(500).json({ message: "Internal server error" });
+  }
+}
+
+export async function getByIdRestaurant(req, res) {
+  try {
+    const { id } = req.params;
+    const menu = await MenuItem.find({ restaurant: id});
+
+    if (!menu || menu.length === 0) {
+      return res.status(400).json({ message: 'Cannot find the Menu Id'});
+    }
+
+    return res.status(200).json({ message: 'Menu Found:', menu});
+
+  } catch (error) {
+     console.error('Error fetching ID:', error);
+    return res.status(500).json({ message: 'Internal cannot found' });
   }
 }

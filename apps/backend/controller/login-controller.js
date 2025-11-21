@@ -10,10 +10,6 @@ export async function login(req, res) {
   try {
     const user = req.user;
 
-    if (!user) {
-      return res.status(400).json({ message: 'User cannot be found' });
-    }
-
     const token = jwt.sign(
       {
         id: user._id,
@@ -25,8 +21,8 @@ export async function login(req, res) {
 
     res.cookie('token', token, {
       httpOnly: true,
-      secure: true,
-      samSite: 'None',
+      secure: false,
+      sameSite: 'Lax',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -34,7 +30,8 @@ export async function login(req, res) {
       message: `Welcome Boss ${user.username}`,
       token,
       newUser: {
-        _id: user.username,
+       _id: user._id,
+        username: user.username,
         email: user.email,
         role: user.role,
       },

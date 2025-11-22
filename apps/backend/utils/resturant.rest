@@ -11,7 +11,7 @@
 # @prompt tags
 POST http://localhost:3000/api/restaurant
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyODljYTkwODU2MDA5ODllNyIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzQ1OTAzMywiZXhwIjoxNzY0MDYzODMzfQ.8WTWI5ajRdE0YXG_11lwEDRwEex31_ZlJFwbU0vAgPM
+Authorization: Bearer 
 
 {
    "name": "{{name}}",
@@ -35,7 +35,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzZmIyO
 # @prompt isAvailable
 POST http://localhost:3000/api/menuItems
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzcxNzkxMywiZXhwIjoxNzY0MzIyNzEzfQ.p6Vm9d55XPGBx5NvSzGrz8X8tvGsXPVt4iPHS3aCSSA
+Authorization: Bearer 
 
 {
   "RestaurantId": "{{RestaurantId}}" ,
@@ -48,15 +48,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiM
 
 ### all restaurant admin only
 GET http://localhost:3000/api/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWMzNzNmNmJlMzcwYzE3Y2E5MzI5OSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2MzQ1NzM1NSwiZXhwIjoxNzY0MDYyMTU1fQ.YF12h9rlK5PCnZjbmPbDuo_xWdEgwDKNHIvKVEdwIU0
-
+Authorization: Bearer 
 ### owner restaurant
 GET http://localhost:3000/api/myrestaurant
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzcxNzkxMywiZXhwIjoxNzY0MzIyNzEzfQ.p6Vm9d55XPGBx5NvSzGrz8X8tvGsXPVt4iPHS3aCSSA
+Authorization: Bearer 
 
 ### menu of the restaurant
 GET http://localhost:3000/api/restaurant/menu
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MWJmYzhiMzBlNmU1ZmM4ZDUyMWQyYSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2MzYyMzM0NSwiZXhwIjoxNzY0MjI4MTQ1fQ.BquRDrOoNyIBpAvvw4jC2cIjCfWy5iSppT4DdpMfqgA
+Authorization: Bearer 
 
 ###
 GET http://localhost:3000/api/restaurant/menuItems/691fefd6f3a8d764e9fdd96b

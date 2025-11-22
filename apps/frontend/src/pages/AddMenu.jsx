@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { axiosInstance } from '../lib/axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function AddMenu() {
   const [form, setForm] = useState({
@@ -10,6 +10,7 @@ function AddMenu() {
     image: null,
   });
     const navigate = useNavigate();
+    const { id } = useParams();
 
   function handleChange(e){
     setForm({...form, [e.target.name]: e.target.value});
@@ -31,6 +32,7 @@ function AddMenu() {
     };
 
     const formData = new FormData();
+    formData.append("restaurant", id);
     formData.append("name", name);
     formData.append("price", price);
     formData.append("category", category);

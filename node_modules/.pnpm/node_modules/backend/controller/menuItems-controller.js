@@ -3,14 +3,12 @@ import Restaurant from '../model/restaurant-schema.js';
 
 export async function menuItems(req, res) {
   try{
-    const ownerId = req.user._id;
+        const { restaurant, name, price, category, isAvailable } = req.body;
 
-    const restaurant = await Restaurant.findOne({ owner: ownerId});
     if(!restaurant){
        return res.status(404).json({ message: "Owner has no restaurant yet" });
     }
 
-    const { name, price, category, isAvailable } = req.body;
      const imageUrl = req.file?.path || '';
 
      console.log('Form data:', req.body);
@@ -18,7 +16,7 @@ console.log('Uploaded file:', req.file);
 
 
     const items = await MenuItem.create({
-      restaurant: restaurant._id,
+      restaurant,
       name,
       price: Number(price),
       image: imageUrl,

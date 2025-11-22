@@ -20,7 +20,7 @@ function App() {
       <Route element={<Customer />} path='/customer' />
       <Route element={<CreateRestaurant />} path='/createRestaurant' />
       <Route element={<RestaurantMenu />} path='/restaurant/:id/menu' />
-      <Route element={<AddMenu />} path='/addMenu' />
+      <Route element={<AddMenu />} path='/addMenu/:id' />
     </Routes>
     </BrowserRouter>
   );

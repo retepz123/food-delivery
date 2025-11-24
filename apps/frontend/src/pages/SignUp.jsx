@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {axiosInstance} from '../lib/axios';
 import { Link, useNavigate } from 'react-router-dom';
+import kusina from '../Images/last.webp';
 
 // const SIGN_UP_URL = `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`;
 
@@ -55,22 +56,22 @@ function SignUp() {
 
 
   return (
-    <>
-    <h1>Sign Up</h1>
-    <div>
-      <form onSubmit={handleSubmit}>
-         <input onChange={handleChange} value={form.username} name='username' type='text' placeholder='Username' />
- <input onChange={handleChange} value={form.email} name='email' type='email' placeholder='E-mail' />
- <input onChange={handleChange} value={form.password} name='password' type='password' placeholder='Password' />
+    <div className='flex flex-col w-full h-screen justify-center items-center' style={{ backgroundImage: `url(${kusina})`}}>
+    
+    <div className=''>
+      <form onSubmit={handleSubmit} className='flex flex-col  w-84 h-59 gap-y-4 justify-center items-center backdrop-blur-sm' >
+         <input onChange={handleChange} value={form.username} name='username' type='text' placeholder='Username' className='bg-gray-300 h-[30px] rounded-sm p-2' />
+ <input onChange={handleChange} value={form.email} name='email' type='email' placeholder='E-mail' className='bg-gray-300 h-[30px] rounded-sm p-2'/>
+ <input onChange={handleChange} value={form.password} name='password' type='password' placeholder='Password' className='rounded-sm p-2 bg-gray-300 h-[30px]'/>
  <select name="role" value={form.role} onChange={handleChange}>
     <option value="customer">Customer</option>
     <option value="owner">Owner</option>
   </select>
- <button type='submit'>Sign Up</button>
+ <button type='submit' className='w-30 rounded-md hover:bg-blue-400 cursor-pointer hover:text-white bg-white'>Sign Up</button>
       </form>
      <Link to='/login'>Login</Link>
     </div>
-    </>
+    </div>
   );
 }
 

@@ -46,7 +46,11 @@ function RestaurantMenu() {
           <div className='pt-5 items-center'>
              <h3 className='font-bold text-base'>{item.name}</h3>
           <p>{item.category}</p>
-          <p>₱{item.price}</p>
+          <div className='flex justify-between'>
+            <p>₱{item.price}</p>
+            <button type='submit'>+</button>
+
+          </div>
           </div>
          
         </div>

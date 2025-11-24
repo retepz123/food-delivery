@@ -4,14 +4,14 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import { Server } from 'socket.io'
+import { Server } from 'socket.io';
 import http from 'http';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 
-import authenticateRoute from './routes/authenticate-routes.js'
+import authenticateRoute from './routes/authenticate-routes.js';
 import restaurantRoutes from './routes/restaurant-routes.js';
-import validateUsername from './routes/validateUsername-routes.js'
+import validateUsername from './routes/validateUsername-routes.js';
 import cloudinaryRoutes from './routes/cloudinary-routes.js';
 import User from './model/user-schema.js';
 

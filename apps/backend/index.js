@@ -3,7 +3,6 @@ import process from 'node:process';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
 import { Server } from 'socket.io';
 import http from 'http';
 import jwt from 'jsonwebtoken';
@@ -41,7 +40,7 @@ app.use(cors({
 
 app.set('port', PORT);
 app.use(express.json());
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 

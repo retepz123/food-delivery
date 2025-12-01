@@ -1,2 +1,7 @@
 packages:
-  - "apps/*"
+  - apps/*
+
+onlyBuiltDependencies:
+  - '@swc/core'
+  - core-js
+  - esbuild

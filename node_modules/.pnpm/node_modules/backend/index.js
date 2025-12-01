@@ -33,7 +33,7 @@ connectDB();
 
 //cors connect to frontend
 app.use(cors({
-  origin: ['http://localhost:5173'],
+  origin: ['http://localhost:5173', 'https://backend-food-delivery-5jnh.onrender.com'],
   methods: ['GET', 'POST', 'DELETE'],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],

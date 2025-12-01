@@ -9,7 +9,7 @@ import upload from '../cloudinary/multer-middleware.js';
 const router = express.Router();
 
 //owner
-router.post('/restaurant',  upload.single('image'),  protectedMiddleware, isOwner, createRestaurant);
+router.post('/restaurant', upload.single('image'), protectedMiddleware, isOwner, createRestaurant);
 router.post('/menuItems', upload.single('image'), protectedMiddleware, isOwner, menuItems);
 router.get('/myrestaurant', protectedMiddleware, getMyRestaurant);
 router.get('/restaurant/menu', protectedMiddleware, getMyMenuOwner);

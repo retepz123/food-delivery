@@ -16,70 +16,71 @@ function CreateRestaurant() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value});
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleFileChange = (e) => {
-    setForm({...form, image: e.target.files[0]});
+    setForm({ ...form, image: e.target.files[0] });
   };
 
-  async function handleSubmit(e){
+  async function handleSubmit(e) {
     e.preventDefault();
 
-   const { name, description, address, phone, category, rating, tags, image } = form;
+    const { name, description, address, phone, category, rating, tags, image } = form;
 
-    if (!name.trim() || !description.trim() || !address.trim() || !contact.trim() || !category.trim() || !ratings || !tags.trim() || !image) {
-      alert("Please fill in all fields and upload an image.");
+    if (!name || !description || !address || !phone || !category || !rating || !tags || !image) {
+      alert('Please fill in all fields and upload an image.');
       return;
     }
 
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("address", address);
-    formData.append("phone", phone);
-    formData.append("category", category);
-    formData.append("rating", rating);
-    formData.append("tags", tags);
-    formData.append('image', form.image);
-
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('address', address);
+    formData.append('phone', phone);      // backend expects 'phone'
+    formData.append('category', category);
+    formData.append('rating', rating);    // backend expects 'rating'
+    formData.append('tags', tags);
+    formData.append('image', image);
 
     try {
-      const res = await axiosInstance.post("/restaurant", formData, {
-        headers: { "Content-Type": "multipart/form-data" }
+      const res = await axiosInstance.post('/restaurant', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
       });
 
-      // console.log(req.file);
-
-
-      alert("Successfully Created a Restaurant");
+      alert('Successfully Created a Restaurant');
       console.log(res.data);
-
+      navigate('/ownersPage');
     } catch (error) {
-      console.error("Error:", error);
-      alert(error.response?.data?.error || "Failed to create restaurant");
+      console.error('Error:', error);
+      alert(error.response?.data?.message || 'Failed to create restaurant');
     }
   }
 
-  return (  
+  return (
     <main>
       <h1>Create Restaurant</h1>
-      <form onSubmit={handleSubmit} className='flex flex-col justify-center'>
-        <input type='text' placeholder='Restaurant`s Name' name='name' onChange={handleChange} />
-        <input type='text' placeholder='Description' name='description' onChange={handleChange}/>
-        <input type='text' placeholder='Address' name='address' onChange={handleChange} />
-        <input type='tel' placeholder='Contanct Number' name='phone' onChange={handleChange}/>
-        <input type='text' placeholder='Category' name='category' onChange={handleChange}/>
-        <input type='number' placeholder='Ratings' name='rating' onChange={handleChange}/>
-        <input type='text' placeholder='Tags' name='tags' onChange={handleChange}/>
+      <form onSubmit={handleSubmit} className="flex flex-col justify-center">
+        <input type="text" name="name" placeholder="Restaurant Name" onChange={handleChange} />
+        <input type="text" name="description" placeholder="Description" onChange={handleChange} />
+        <input type="text" name="address" placeholder="Address" onChange={handleChange} />
+        <input type="tel" name="phone" placeholder="Phone" onChange={handleChange} />
+        <input type="text" name="category" placeholder="Category" onChange={handleChange} />
+        <input type="number" name="rating" placeholder="Rating" onChange={handleChange} />
+        <input type="text" name="tags" placeholder="Tags" onChange={handleChange} />
 
-        <input id='upload-file' type='file' accept='image/*' name='image' onChange={handleFileChange}/>
-        <label htmlFor='upload-file' name='upload'>Upload Image</label>
-        <button type='submit'>Submit</button>
+        <input id="upload-file" type="file" accept="image/*" name="image" onChange={handleFileChange} />
+        <label htmlFor="upload-file">Upload Image</label>
+
+        <button type="submit">Submit</button>
       </form>
-      <div>
-       <button onClick={() => navigate('/ownersPage')} className='cursor-pointer p-2 w-24 rounded-lg text-white bg-blue-500' >Back</button>
-      </div>
+
+      <button
+        onClick={() => navigate('/ownersPage')}
+        className="cursor-pointer p-2 w-24 rounded-lg text-white bg-blue-500"
+      >
+        Back
+      </button>
     </main>
   );
 }

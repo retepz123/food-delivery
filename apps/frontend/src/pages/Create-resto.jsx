@@ -37,9 +37,9 @@ function CreateRestaurant() {
     formData.append('name', name);
     formData.append('description', description);
     formData.append('address', address);
-    formData.append('phone', phone);      // backend expects 'phone'
+    formData.append('phone', phone);
     formData.append('category', category);
-    formData.append('rating', rating);    // backend expects 'rating'
+    formData.append('rating', rating);
     formData.append('tags', tags);
     formData.append('image', image);
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { axiosInstance } from '../lib/axios';
 import { initSocket, socket } from '../lib/sokcet';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function OwnersPage() {
   const [restaurant, setRestaurant] = useState(null);
@@ -50,7 +50,7 @@ function OwnersPage() {
             <span>Home</span>
             <span>Profile</span>
             <span>Logout </span>
-            <a href='/createRestaurant'>Register my Restaurant</a>
+            <Link to={'/createRestaurant'} >Register</Link>
           </div>
         </nav>
         <div>

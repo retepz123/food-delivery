@@ -2,7 +2,7 @@
 import { io } from 'socket.io-client';
 
 const token = localStorage.getItem('token'); // your JWT
-export const socket = io('http://localhost:3000', {
+export const socket = io('https://backend-food-delivery-5jnh.onrender.com', {
   auth: {
     token: token,
   },
@@ -12,7 +12,7 @@ export const socket = io('http://localhost:3000', {
 
 export const initSocket = () => {
   const token = localStorage.getItem('token');
-  return io('http://localhost:3000', {
+  return io('https://backend-food-delivery-5jnh.onrender.com', {
     auth: { token: token, },
     transports: ['websocket'],
     withCredentials: true,

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'https://backend-food-delivery-5jnh.onrender.com/api',
   withCredentials: true,
 });

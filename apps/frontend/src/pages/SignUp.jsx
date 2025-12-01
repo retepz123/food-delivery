@@ -58,18 +58,20 @@ function SignUp() {
   return (
     <div className='flex flex-col w-full h-screen justify-center items-center' style={{ backgroundImage: `url(${kusina})`}}>
     
-    <div className=''>
-      <form onSubmit={handleSubmit} className='flex flex-col  w-84 h-59 gap-y-4 justify-center items-center backdrop-blur-sm' >
+    <div className='flex flex-col items-center'>
+      <form onSubmit={handleSubmit} className='flex flex-col  w-84 h-59 gap-y-4 justify-center items-center backdrop-blur-md border border-white' >
          <input onChange={handleChange} value={form.username} name='username' type='text' placeholder='Username' className='bg-gray-300 h-[30px] rounded-sm p-2' />
  <input onChange={handleChange} value={form.email} name='email' type='email' placeholder='E-mail' className='bg-gray-300 h-[30px] rounded-sm p-2'/>
  <input onChange={handleChange} value={form.password} name='password' type='password' placeholder='Password' className='rounded-sm p-2 bg-gray-300 h-[30px]'/>
- <select name="role" value={form.role} onChange={handleChange}>
+ <select name="role" value={form.role} onChange={handleChange} className='cursor-pointer'>
     <option value="customer">Customer</option>
     <option value="owner">Owner</option>
   </select>
- <button type='submit' className='w-30 rounded-md hover:bg-blue-400 cursor-pointer hover:text-white bg-white'>Sign Up</button>
+ <button type='submit' className='w-30 h-10 rounded-md hover:bg-blue-400 cursor-pointer hover:text-white bg-white'>Sign Up</button>
       </form>
-     <Link to='/login'>Login</Link>
+      <div className='pt-5'>
+       <Link to='/login' className='w-30 h-6 font-bold  rounded-md block text-center hover:bg-blue-400 hover:text-white'>Login</Link>
+      </div>
     </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { axiosInstance } from '../lib/axios';
 import { useNavigate } from 'react-router-dom';
+import kusina from '../Images/last.webp';
+
 
 function Login() {
   const [form, setForm] = useState({ username: '', password: '' });
@@ -45,15 +47,16 @@ function Login() {
   }, [loggedIn, navigate]);
 
   return (
-    <div>
+    <div className='flex flex-col w-full h-screen justify-center items-center' style={{ backgroundImage: `url(${kusina})`}}>
       <h1>Login</h1>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className='flex flex-col gap-y-4 w-84 h-48 justify-center p-5 backdrop-blur-md items-center border border-white'>
         <input
           onChange={handleChange}
           value={form.username}
           name="username"
           type="text"
           placeholder="Username"
+          className='bg-gray-300 rounded-md h-[30px] p-2'
         />
         <input
           onChange={handleChange}
@@ -61,8 +64,9 @@ function Login() {
           name="password"
           type="password"
           placeholder="Password"
+          className='bg-gray-300 rounded-md h-[30px] p-2'
         />
-        <button type="submit">Login</button>
+        <button type="submit" className='w-30 h-10 rounded-md hover:bg-blue-400 cursor-pointer hover:text-white bg-white'>Login</button>
       </form>
     </div>
   );

@@ -1,8 +1,6 @@
 import Restaurant from '../model/restaurant-schema.js';
 import MenuItem from '../model/menu-schema.js';
 
-import Restaurant from '../model/restaurant-schema.js';
-
 export async function createRestaurant(req, res) {
   console.log('Request user Id:', req.user.id);
 

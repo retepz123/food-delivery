@@ -7,9 +7,9 @@ function CreateRestaurant() {
     name: '',
     description: '',
     address: '',
-    contact: '',
+    phone: '',
     category: '',
-    ratings: '',
+    rating: '',
     tags: '',
     image: null,
   });
@@ -26,7 +26,7 @@ function CreateRestaurant() {
   async function handleSubmit(e){
     e.preventDefault();
 
-   const { name, description, address, contact, category, ratings, tags, image } = form;
+   const { name, description, address, phone, category, rating, tags, image } = form;
 
     if (!name.trim() || !description.trim() || !address.trim() || !contact.trim() || !category.trim() || !ratings || !tags.trim() || !image) {
       alert("Please fill in all fields and upload an image.");
@@ -37,9 +37,9 @@ function CreateRestaurant() {
     formData.append("name", name);
     formData.append("description", description);
     formData.append("address", address);
-    formData.append("contact", contact);
+    formData.append("phone", phone);
     formData.append("category", category);
-    formData.append("ratings", ratings);
+    formData.append("rating", rating);
     formData.append("tags", tags);
     formData.append('image', form.image);
 
@@ -68,9 +68,9 @@ function CreateRestaurant() {
         <input type='text' placeholder='Restaurant`s Name' name='name' onChange={handleChange} />
         <input type='text' placeholder='Description' name='description' onChange={handleChange}/>
         <input type='text' placeholder='Address' name='address' onChange={handleChange} />
-        <input type='tel' placeholder='Contanct Number' name='contact' onChange={handleChange}/>
+        <input type='tel' placeholder='Contanct Number' name='phone' onChange={handleChange}/>
         <input type='text' placeholder='Category' name='category' onChange={handleChange}/>
-        <input type='number' placeholder='Ratings' name='ratings' onChange={handleChange}/>
+        <input type='number' placeholder='Ratings' name='rating' onChange={handleChange}/>
         <input type='text' placeholder='Tags' name='tags' onChange={handleChange}/>
 
         <input id='upload-file' type='file' accept='image/*' name='image' onChange={handleFileChange}/>

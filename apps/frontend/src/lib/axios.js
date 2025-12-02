@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://backend-food-delivery-5jnh.onrender.com/api',
+  baseURL: import.meta.env.VITE_BACKEND_URL,
   withCredentials: true,
 });

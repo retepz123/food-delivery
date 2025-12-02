@@ -53,6 +53,7 @@ function OwnersPage() {
             <Link to={'/createRestaurant'} >Register</Link>
           </div>
         </nav>
+        
         <div>
           <h1>My Restaurant</h1>
           <section className='w-full h-screen flex justify-center'>

@@ -33,3 +33,14 @@ console.log('Uploaded file:', req.file);
     });
   }
 }
+
+export async function fetchAllMenu(req, res) {
+  try {
+    const menus = await MenuItem.find().populate('restaurant');
+    return res.status(200).json({ message: 'All menu items fetch successfully', menus,})
+
+  } catch (error){
+     console.error("Error:", error);
+    return res.status(500).json({ message: "Internal Server Error in Get All Menus" });
+  }
+}

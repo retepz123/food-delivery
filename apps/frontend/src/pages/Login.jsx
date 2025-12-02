@@ -43,7 +43,7 @@ function Login() {
     if (!loggedIn) return; // only run after login
     const user = JSON.parse(localStorage.getItem('user'));
     if (user?.role === 'owner') navigate('/ownersPage');
-    else navigate('/home'); // default redirect for other users
+    else navigate('/customerPage'); // default redirect for other users
   }, [loggedIn, navigate]);
 
   return (

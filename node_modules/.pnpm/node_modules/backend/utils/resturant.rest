@@ -57,5 +57,19 @@ Authorization: Bearer
 GET http://localhost:3000/api/restaurant/menu
 Authorization: Bearer 
 
+
 ###
 GET http://localhost:3000/api/restaurant/menuItems/691fefd6f3a8d764e9fdd96b
+
+###all menu for customer page
+GET http://localhost:3000/api/fetchAllMenu
+
+### all cart of the user
+GET http://localhost:3000/api/allCart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmVhNzlhNTRmYTdkMTIyNDZhMDA1OSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc2NDY2NjI5MiwiZXhwIjoxNzY1MjcxMDkyfQ.vKs0DhCe9vlmr49TRJuLJT28AX3RuMy7qWqxVP1in6k
+
+###
+DELETE http://localhost:3000/api/delete/692eab8126c46ad6a92314dc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmVhNzlhNTRmYTdkMTIyNDZhMDA1OSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc2NDY2NjI5MiwiZXhwIjoxNzY1MjcxMDkyfQ.vKs0DhCe9vlmr49TRJuLJT28AX3RuMy7qWqxVP1in6k

@@ -45,17 +45,17 @@
     }
 
     return (
-      <div>
-        <div className='flex justify-between p-5'>
+      <div className='bg-[#E6614D]'>
+        <div className=' flex justify-between p-5'>
           <h1>Home</h1>
           <Link to='/checkout'>Checkout</Link>
 
         </div>
-        <div className='grid grid-cols-4 gap-y-7 border border-red-500 p-5 place-content-center'>
+        <div className='grid grid-cols-4 gap-y-7 gap-x-5 p-5 place-content-center'>
           {fetchAllMenu.length > 0 ? (
             fetchAllMenu.map((menu) => (
-              <div className='flex justify-center'>
-                <div key={menu._id} style={{ marginBottom: '20px' }} className=''>
+              <div className='flex justify-center bg-[#E5E4E2] rounded-sm'>
+                <div key={menu._id}  className='w-[70%] flex flex-col items-center h-auto p-5 '>
                 <img 
                   src={menu.image} 
                   alt={menu.name}

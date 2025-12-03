@@ -2,7 +2,7 @@ import express from 'express';
 import { createRestaurant, getByIdRestaurant, getMyMenuOwner, getMyRestaurant} from '../controller/restaurant-controller.js';
 import { protectedMiddleware } from '../middleware/protected-middleware.js';
 import { isAdmin, isOwner } from '../middleware/restaurant-middleware.js';
-import { fetchAllMenu, menuItems } from '../controller/menuItems-controller.js';
+import { fetchAllMenu, menuItems, removeMenu } from '../controller/menuItems-controller.js';
 import { getAllRestaurant } from '../controller/admin-controll.js';
 import upload from '../cloudinary/multer-middleware.js';
 import { createOrder } from '../controller/order-controller.js';
@@ -19,6 +19,7 @@ router.get('/restaurant/menuItems/:id', getByIdRestaurant);
 router.post('/menuItems', upload.single('image'), protectedMiddleware, isOwner, menuItems);
 router.get('/restaurant/menu', protectedMiddleware, getMyMenuOwner);
 router.get('/fetchAllMenu', fetchAllMenu);
+router.delete('/remove/:id', protectedMiddleware, removeMenu);
 
 //admin only
 router.get('/all', protectedMiddleware, isAdmin, getAllRestaurant );

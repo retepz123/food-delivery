@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { axiosInstance } from '../lib/axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import kusina from '../Images/last.webp';
 
 function AddMenu() {
   const [form, setForm] = useState({
@@ -54,17 +55,17 @@ function AddMenu() {
   }
 
   return (
-    <div>
-      <div>
-        <h1>Create Menu</h1>
+    <div className='w-full h-screen flex flex-col justify-center items-center' style={{ backgroundImage: `url(${kusina})`}}>
+      <div className='flex '>
+        <h1 className='text-white font-serif text-3xl'>Create Menu</h1>
       </div>
-      <form className='flex flex-col' onSubmit={handleSubmit}>
-        <input type='text' placeholder='Food Name' name='name' onChange={handleChange}/>
-        <input type='Number' placeholder='Price' name='price' onChange={handleChange}/>
-        <input type='text' placeholder='category' name='category' onChange={handleChange}/>
-        <input id='upload-menu' type='file' accept='image/*' name='image' onChange={handleFileChange}/>
+      <form className='flex flex-col gap-y-5 border border-white items-center h-[45%] pt-5 backdrop-blur-md' onSubmit={handleSubmit}>
+        <input className='bg-gray-300 rounded-md h-[30px] p-2' type='text' placeholder='Food Name' name='name' onChange={handleChange}/>
+        <input className='bg-gray-300 rounded-md h-[30px] p-2' type='Number' placeholder='Price' name='price' onChange={handleChange}/>
+        <input className='bg-gray-300 rounded-md h-[30px] p-2' type='text' placeholder='category' name='category' onChange={handleChange}/>
+        <input className='bg-gray-300 rounded-md h-[30px] p-2' id='upload-menu' type='file' accept='image/*' name='image' onChange={handleFileChange}/>
         <label htmlFor='upload-menu' name='upload' >Upload</label>
-        <button type='submit'>Submit</button>
+        <button className='cursor-pointer p-2 w-24 rounded-lg hover:text-white hover:bg-blue-500' type='submit'>Submit</button>
       </form>
              <button onClick={() => navigate('/ownersPage')} className='cursor-pointer p-2 w-24 rounded-lg text-white bg-blue-500' >Back</button>
 

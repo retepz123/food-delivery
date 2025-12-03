@@ -59,7 +59,7 @@ function OwnersPage() {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
                {restaurant && restaurant.length > 0 ? (
   restaurant.map((r) => (
-    <div key={r._id} className="flex flex-col bg-[#E5E4E2] p-5 w-96 h-auto">
+    <div key={r._id} className="flex flex-col bg-[#E5E4E2] p-5 w-96 h-auto rounded-sm">
       <img src={r.image} alt={r.name} className='rounded-sm' />
       <div className='flex flex-col pt-5'>
         <span className='font-bold'>{r.name}</span>

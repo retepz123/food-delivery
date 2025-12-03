@@ -20,35 +20,46 @@ function RestaurantMenu() {
     fetchMenu();
   }, [id]);
 
+  async function handleRemove(id) {
+    try {
+      const res = await axiosInstance.delete(`/remove/${id}`, 
+       { withCredentials: true},
+       setMenu(menu.filter((item) => item._id !== id))
+      ) 
+    }catch (error) {
+      console.error('Error in removing the item', error);
+    }
+  }
+
   return (
-    <div>
+    <div className='bg-[#E6614D] w-full min-h-screen'>
      <nav className='w-full'>
-       <div className='bg-[#FF4F00] flex justify-between p-5 w-full'>
+       <div className='bg-[#E6614D] flex justify-between p-5 w-full'>
         <h1 className='pl-10'>Logo</h1>
         <div className='pr-10'>
-        <button className='text-white cursor-pointer text-xl bg-blue-500 w-32' onClick={() => navigate(`/addMenu/${id}`)} >Add Menu</button>
+        <button className='text-white cursor-pointer text-xl bg-blue-400 w-32 rounded-sm' onClick={() => navigate(`/addMenu/${id}`)} >Add Menu</button>
 
         </div>
       </div>
      </nav>
      <div className='w-full flex justify-center'>
-      <h1 className='text-2xl pt-5'>Menu for Restaurant</h1>
+      <h1 className='text-2xl pt-5 text-white'>Menu for Restaurant</h1>
 
      </div>
-        <div className='w-full h-screen pt-20'>
-          <div className='flex justify-center'>
-               <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-[90%]'>
+        <div className='pt-10'>
+          <div className='w-full h-[100%] flex justify-center'>
+               <div className=' grid grid-cols-3 gap-y-7 w-[80%]'>
          {menu.map(item => (
-        <div key={item._id} className=' flex flex-col justify-center p-6'>
+        <div key={item._id} className=' bg-[#E5E4E2] w-80 p-5 rounded-sm '>
           <div className=''>
-            <img src={item.image} alt={item.name} className='w-auto'/>
+            <img src={item.image} alt={item.name} className='w-auto h-64'/>
           </div>
           <div className='pt-5 items-center'>
              <h3 className='font-bold text-base'>{item.name}</h3>
           <p>{item.category}</p>
           <div className='flex justify-between'>
             <p>₱{item.price}</p>
-            <button type='submit'>+</button>
+            <button onClick={() => handleRemove(item._id)} type='submit'>❌</button>
 
           </div>
           </div>

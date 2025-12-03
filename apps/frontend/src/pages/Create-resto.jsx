@@ -59,7 +59,7 @@ function CreateRestaurant() {
   }
 
   return (
-    <main className='flex flex-col justify-center items-center gap-y-5 h-screen w-full 'style={{ backgroundImage: `url(${kusina})`}}>
+    <main className='flex flex-col justify-center items-center gap-y-5 h-screen w-full ' style={{ backgroundImage: `url(${kusina})`}}>
       <h1 className='text-white font-sans text-3xl font-bold'>Create Restaurant</h1>
       <form onSubmit={handleSubmit} className="flex flex-col justify-center gap-y-3 backdrop-blur-md w-[30%] h-[70%] items-center rounded-md ">
         <input  className='bg-gray-300 rounded-md h-[30px] p-2' type="text" name="name" placeholder="Restaurant Name" onChange={handleChange} />
@@ -71,7 +71,7 @@ function CreateRestaurant() {
         <input  className='bg-gray-300 rounded-md h-[30px] p-2' type="text" name="tags" placeholder="Tags" onChange={handleChange} />
 
         <input  className='bg-gray-300 rounded-md h-[30px] p-2' id="upload-file" type="file" accept="image/*" name="image" onChange={handleFileChange} />
-        <label htmlFor="upload-file">Upload Image</label>
+        <label className='cursor-pointer' htmlFor="upload-file">Upload Image</label>
 
         <button className='cursor-pointer p-2 w-24 rounded-lg hover:text-white hover:bg-blue-500' type="submit">Submit</button>
       </form>

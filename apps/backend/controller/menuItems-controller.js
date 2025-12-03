@@ -44,3 +44,17 @@ export async function fetchAllMenu(req, res) {
     return res.status(500).json({ message: "Internal Server Error in Get All Menus" });
   }
 }
+
+export async function removeMenu(req, res){
+  try {
+    const remove = await MenuItem.findByIdAndDelete(req.params.id);
+    if (!remove ){
+      return res.status(400).json({ message: 'Cannot find the Id'})
+    }
+    return res.status(200).json({ message: 'Successfully deleted'})
+
+  } catch (error){
+    console.error(error);
+    return res.status(500).json({ message: "Server error" });
+  }
+}

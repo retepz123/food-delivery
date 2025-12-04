@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '../lib/axios';
 import { initSocket, socket } from '../lib/sokcet';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../Images/foodlogo.png';
 
 function OwnersPage() {
   const [restaurant, setRestaurant] = useState(null);
@@ -43,7 +44,8 @@ function OwnersPage() {
   
       <div>
         <nav className='bg-[#E6614D] w-full px-6 py-4 flex justify-between items-center'>
-            <h1>Logo</h1>
+            <img src={logo} alt='logo' className='w-25 h-25 rounded-md' />
+           
           <div className='flex justify-evenly w-96 text-white'> 
             <span>Home</span>
             <span>Profile</span>

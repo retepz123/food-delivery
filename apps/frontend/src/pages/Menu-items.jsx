@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosInstance } from "../lib/axios";
+import logo from '../Images/foodlogo.png';
+
 
 function RestaurantMenu() {
   const { id } = useParams(); // restaurantId from URL
@@ -35,7 +37,8 @@ function RestaurantMenu() {
     <div className='bg-[#E6614D] w-full min-h-screen'>
      <nav className='w-full'>
        <div className='bg-[#E6614D] flex justify-between p-5 w-full'>
-        <h1 className='pl-10'>Logo</h1>
+            <img src={logo} alt='logo' className='w-25 h-25 rounded-md' />
+
         <div className='pr-10'>
         <button className='text-white cursor-pointer text-xl bg-blue-400 w-32 rounded-sm' onClick={() => navigate(`/addMenu/${id}`)} >Add Menu</button>
 

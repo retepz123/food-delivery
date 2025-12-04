@@ -48,7 +48,7 @@ function Login() {
 
   return (
     <div className='flex flex-col w-full h-screen justify-center items-center' style={{ backgroundImage: `url(${kusina})`}}>
-      <h1>Login</h1>
+      <h1 className='font-bold text-2xl text-white'>Login</h1>
       <form onSubmit={handleLogin} className='flex flex-col gap-y-4 w-84 h-48 justify-center p-5 backdrop-blur-md items-center border border-white'>
         <input
           onChange={handleChange}

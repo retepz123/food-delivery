@@ -2,6 +2,7 @@
   import { axiosInstance } from '../lib/axios';
   import { useCart } from '../components/CartContext';
   import { Link } from 'react-router-dom';
+  import logo from '../Images/foodlogo.png';
 
   function CustomerPage() {
     const [fetchAllMenu, setFetchAllMenu] = useState([]);
@@ -47,8 +48,8 @@
     return (
       <div className='bg-[#E6614D]'>
         <div className=' flex justify-between p-5'>
-          <h1>Home</h1>
-          <Link to='/checkout'>Checkout</Link>
+          <img src={logo} alt='logo' className='w-25 h-25 rounded-md' />
+          <Link to='/checkout' className='text-white text-xl font-bold cursor-pointer'>Checkout</Link>
 
         </div>
         <div className='grid grid-cols-4 gap-y-7 gap-x-5 p-5 place-content-center'>
